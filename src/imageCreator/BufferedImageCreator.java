@@ -3,18 +3,34 @@ package imageCreator;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
+import ui.MainFrame;
+
+import components.RGBChecker;
+import extras.Debugger;
 
 public class BufferedImageCreator {
 	private TransparencyChecker transparencyChecker = new TransparencyChecker();
+	private RGBChecker rgbChecker = new RGBChecker();
 	
-	public BufferedImage createBufferedImage(Image selectedImage){
+	public BufferedImage createBufferedImage(Image selectedImage, boolean isRGB){
 		boolean imageTransparent = transparencyChecker.checkForTransparency(selectedImage);
 		int imagetype;
 		
-		if(imageTransparent)
-			imagetype = BufferedImage.TYPE_INT_RGB;
-		else
-			imagetype = BufferedImage.TYPE_INT_ARGB;
+		if( isRGB )
+			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Selected image is in RGB. \n Image will be converted to Grayscale.");
+		
+		imagetype = BufferedImage.TYPE_BYTE_GRAY;
+		/*else{
+			if(imageTransparent)
+				imagetype = BufferedImage.TYPE_INT_RGB;
+			else
+				imagetype = BufferedImage.TYPE_INT_ARGB;
+		}
+		*/
 		
 		BufferedImage bImage = new BufferedImage(selectedImage.getWidth(null), selectedImage.getHeight(null), imagetype);
 		
@@ -23,6 +39,10 @@ public class BufferedImageCreator {
 		g.dispose();
 		
 		return bImage;
+	}
+
+	public boolean checkForRGB(File selectedFile) {
+		return (rgbChecker.isRGB(selectedFile));
 	}
 	
 	/*

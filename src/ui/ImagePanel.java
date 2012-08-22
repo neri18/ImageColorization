@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import components.RGBChecker;
+
 public class ImagePanel extends JPanel{
 	
 	private static ImagePanel instance;
@@ -40,11 +42,9 @@ public class ImagePanel extends JPanel{
 		//setSize(bufferedImage.getWidth(), bufferedImage.getHeight());
 		repaint();
 	}
-	
+
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(bufferedImage, 0, 0, null);
 	}
-
-	
 }

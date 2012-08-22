@@ -120,7 +120,8 @@ public class MenuSelectionBar extends JMenuBar{
 			Image selectedImage =  ImageIO.read(selectedFile);
 			
 			BufferedImageCreator bimageCreator = new BufferedImageCreator();
-			bufferedImage = bimageCreator.createBufferedImage(selectedImage);
+			
+			bufferedImage = bimageCreator.createBufferedImage(selectedImage, bimageCreator.checkForRGB(selectedFile));
 			
 			ImagePanel imagePanel = ImagePanel.getInstance();
 			imagePanel.addImageToPanel(bufferedImage);
