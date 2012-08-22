@@ -48,7 +48,7 @@ public class MainFrame extends JFrame{
 		createMenuBar();
 		createImagePanel();
 		createColorPanel();
-	//	createProcessPanel();
+		createProcessPanel();
 	}
 
 	private void createContentPanel() {
@@ -84,7 +84,7 @@ public class MainFrame extends JFrame{
 
 	private void createProcessPanel() {
 		processPanel = ProcessPanel.getInstance();
-		processPanel.setBounds(495, 275, processPanel.getWidth(), processPanel.getHeight());
+		processPanel.setBounds(485, 315, processPanel.getWidth(), processPanel.getHeight());
 		contentPanel.add(processPanel);
 	}
 	

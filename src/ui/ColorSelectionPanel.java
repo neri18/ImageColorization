@@ -21,7 +21,7 @@ public class ColorSelectionPanel extends JComponent{
 	private ColorPreviewPanel colorPreviewPanel;
 	
 	private final int panelWidth = 435;
-	private final int panelHeight = 350;
+	private final int panelHeight = 315;
 	
 	public static ColorSelectionPanel getInstance(){
 		if(instance == null) instance = new ColorSelectionPanel();
@@ -43,12 +43,16 @@ public class ColorSelectionPanel extends JComponent{
 	}
 
 	private void setConfig(){
-		this.setSize(new Dimension(435, 315));
+		this.setSize(new Dimension(panelWidth, panelHeight));
 		this.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.RAISED, null, null), "Color Selection", TitledBorder.LEADING, TitledBorder.TOP, new Font("Segoe UI", Font.BOLD, 15), null));
 		this.setLayout(new BorderLayout(0, 0));
 	}
 	
 	public ColorPreviewPanel getColorPreviewPanel(){
 		return colorPreviewPanel;
+	}
+	
+	public ColorChooser getColorChooser(){
+		return colorChooser;
 	}
 }

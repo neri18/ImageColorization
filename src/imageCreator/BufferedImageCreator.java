@@ -24,21 +24,23 @@ public class BufferedImageCreator {
 			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Selected image is in RGB. \n Image will be converted to Grayscale.");
 		
 		imagetype = BufferedImage.TYPE_BYTE_GRAY;
-		/*else{
-			if(imageTransparent)
-				imagetype = BufferedImage.TYPE_INT_RGB;
-			else
-				imagetype = BufferedImage.TYPE_INT_ARGB;
-		}
-		*/
-		
 		BufferedImage bImage = new BufferedImage(selectedImage.getWidth(null), selectedImage.getHeight(null), imagetype);
-		
 		Graphics g = bImage.getGraphics();
 		g.drawImage(selectedImage, 0, 0, null);
 		g.dispose();
 		
-		return bImage;
+		if(imageTransparent)
+				imagetype = BufferedImage.TYPE_INT_ARGB;
+		else
+				imagetype = BufferedImage.TYPE_INT_RGB;
+		
+		BufferedImage bImage2 = new BufferedImage(bImage.getWidth(null), bImage.getHeight(null), imagetype);
+		
+		Graphics g2 = bImage2.getGraphics();
+		g2.drawImage(bImage, 0, 0, null);
+		g2.dispose();
+		
+		return bImage2;
 	}
 
 	public boolean checkForRGB(File selectedFile) {

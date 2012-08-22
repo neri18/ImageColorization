@@ -40,4 +40,8 @@ public class ColorChooser extends JColorChooser implements ChangeListener{
 		ColorSelectionPanel.getInstance().getColorPreviewPanel().setColorLabelBGColor(selectedColor);
 	}
 	
+	public Color getSelectedColor(){
+		return selectedColor;
+	}
+	
 }
