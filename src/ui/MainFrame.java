@@ -15,7 +15,7 @@ public class MainFrame extends JFrame{
 	
 	private JPanel contentPanel;
 	
-	private int frameWidth = 800;
+	private int frameWidth = 930;
 	private int frameHeight = 600;
 
 	private MenuSelectionBar menuBar;
@@ -48,7 +48,7 @@ public class MainFrame extends JFrame{
 		createMenuBar();
 		createImagePanel();
 		createColorPanel();
-		createProcessPanel();
+	//	createProcessPanel();
 	}
 
 	private void createContentPanel() {
@@ -78,7 +78,7 @@ public class MainFrame extends JFrame{
 	
 	private void createColorPanel() {
 		colorPanel = ColorSelectionPanel.getInstance();
-		colorPanel.setBounds(495, 0, colorPanel.getWidth(), colorPanel.getHeight());
+		colorPanel.setBounds(485, 0, colorPanel.getWidth(), colorPanel.getHeight());
 		contentPanel.add(colorPanel);
 	}
 
