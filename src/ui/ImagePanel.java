@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ImagePanel extends JPanel{
@@ -57,16 +58,22 @@ public class ImagePanel extends JPanel{
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				if(bufferedImage!=null && e.getX()<=bufferedImage.getWidth() && e.getY()<=bufferedImage.getHeight()){
-					currentX = e.getX();
-					currentY = e.getY();
 					
-					biGraphics.setColor(ColorSelectionPanel.getInstance().getColorChooser().getSelectedColor());
-					biGraphics.drawLine(latestX, latestY, currentX, currentY);
-					
-					latestX = currentX;
-					latestY = currentY;
-					
-					repaint();
+					if( ! ColorSelectionPanel.getInstance().getColorChooser().noSelectedColor() ){
+						currentX = e.getX();
+						currentY = e.getY();
+						
+						biGraphics.setColor(ColorSelectionPanel.getInstance().getColorChooser().getColor());
+						biGraphics.drawLine(latestX, latestY, currentX, currentY);
+						
+						latestX = currentX;
+						latestY = currentY;
+						
+						repaint();
+					}
+					else{
+						JOptionPane.showMessageDialog(MainFrame.getInstance(), "No Color selected. Please choose a color from the palette.");
+					}
 				}
 			}
 		});

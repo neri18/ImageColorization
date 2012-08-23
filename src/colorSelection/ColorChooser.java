@@ -18,7 +18,6 @@ public class ColorChooser extends JColorChooser implements ChangeListener{
 
 	private ColorSelectionModel colorModel;
 	private Color selectedColor;
-	private ColorPreviewPanel previewPanel;
 	
 	public ColorChooser(){
 		createComponenets();
@@ -27,7 +26,6 @@ public class ColorChooser extends JColorChooser implements ChangeListener{
 
 	private void createComponenets() {
 		colorModel = this.getSelectionModel();
-		previewPanel = new ColorPreviewPanel();
 		colorModel.addChangeListener(this);
 	}
 	
@@ -40,8 +38,9 @@ public class ColorChooser extends JColorChooser implements ChangeListener{
 		ColorSelectionPanel.getInstance().getColorPreviewPanel().setColorLabelBGColor(selectedColor);
 	}
 	
-	public Color getSelectedColor(){
-		return selectedColor;
+	public boolean noSelectedColor(){
+		if( selectedColor == null )
+			return true;
+		return false;
 	}
-	
 }
