@@ -5,6 +5,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
@@ -24,6 +25,8 @@ public class MainFrame extends JFrame{
 	private ImagePanel imagePanel;
 	private ColorSelectionPanel colorPanel;
 	private ProcessPanel processPanel;
+	
+	private JScrollPane scrollpane;
 	
 	public static MainFrame getInstance(){
 		if( instance == null )	instance = new MainFrame();
@@ -71,6 +74,11 @@ public class MainFrame extends JFrame{
 		imagePanel = ImagePanel.getInstance();
 		imagePanel.setBounds(5, 20, imagePanel.getWidth(), imagePanel.getHeight());
 		imagePanelHolder.add(imagePanel);
+		
+		scrollpane = new JScrollPane();
+		imagePanelHolder.add(scrollpane);
+		
+		//scrollpane.setViewportView(imagePanel);
 		
 		contentPanel.add(imagePanelHolder);
 		

@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class ImagePanel extends JPanel{
 	
@@ -20,7 +21,7 @@ public class ImagePanel extends JPanel{
 	private int latestY = 0;
 	private int currentX = 0;
 	private int currentY = 0;
-	
+
 	private BufferedImage bufferedImage = null;
 	
 	private Graphics biGraphics;
@@ -91,8 +92,6 @@ public class ImagePanel extends JPanel{
 		repaint();
 		
 		this.grabFocus();
-	
-		
 	}
 
 	protected void paintComponent(Graphics g){
